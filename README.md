@@ -14,14 +14,16 @@ Summary: Tools for the reading and tokenization of R code. The 'sourcetools' pac
 Current build status
 ====================
 
-Linux: [![Circle CI](https://circleci.com/gh/conda-forge/r-sourcetools-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/r-sourcetools-feedstock)
-OSX: [![TravisCI](https://travis-ci.org/conda-forge/r-sourcetools-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/r-sourcetools-feedstock)
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/r-sourcetools-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/r-sourcetools-feedstock/branch/master)
+[![Linux](https://img.shields.io/circleci/project/github/conda-forge/r-sourcetools-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/r-sourcetools-feedstock)
+[![OSX](https://img.shields.io/travis/conda-forge/r-sourcetools-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/r-sourcetools-feedstock)
+[![Windows](https://img.shields.io/appveyor/ci/conda-forge/r-sourcetools-feedstock/master.svg?label=Windows)](https://ci.appveyor.com/project/conda-forge/r-sourcetools-feedstock/branch/master)
 
 Current release info
 ====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/r-sourcetools/badges/version.svg)](https://anaconda.org/conda-forge/r-sourcetools)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/r-sourcetools/badges/downloads.svg)](https://anaconda.org/conda-forge/r-sourcetools)
+
+| Name | Downloads | Version | Platforms |
+| --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-r--sourcetools-green.svg)](https://anaconda.org/conda-forge/r-sourcetools) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/r-sourcetools.svg)](https://anaconda.org/conda-forge/r-sourcetools) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/r-sourcetools.svg)](https://anaconda.org/conda-forge/r-sourcetools) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/r-sourcetools.svg)](https://anaconda.org/conda-forge/r-sourcetools) |
 
 Installing r-sourcetools
 ========================
@@ -66,6 +68,7 @@ To manage the continuous integration and simplify feedstock maintenance
 Using the ``conda-forge.yml`` within this repository, it is possible to re-render all of
 this feedstock's supporting files (e.g. the CI configuration files) with ``conda smithy rerender``.
 
+For more information please check the [conda-forge documentation](https://conda-forge.org/docs/).
 
 Terminology
 ===========
