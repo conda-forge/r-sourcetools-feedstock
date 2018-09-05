@@ -1,4 +1,4 @@
-{% set version = '0.1.6' %}
+{% set version = '0.1.7' %}
 
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
@@ -14,7 +14,7 @@ source:
     - https://cran.r-project.org/src/contrib/Archive/sourcetools/sourcetools_{{ version }}.tar.gz
 
 
-  sha256: c9f48d2f0b7f7ed0e7fecdf8e730b0b80c4d567f0e1e880d118b0944b1330c51
+  sha256: 47984406efb3b3face133979ccbae9fefb7360b9a6ca1a1c11473681418ed2ca
 
 build:
   merge_build_host: True  # [win]
