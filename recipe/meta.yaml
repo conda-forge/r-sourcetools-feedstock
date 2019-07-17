@@ -12,13 +12,11 @@ source:
   url:
     - https://cran.r-project.org/src/contrib/sourcetools_{{ version }}.tar.gz
     - https://cran.r-project.org/src/contrib/Archive/sourcetools/sourcetools_{{ version }}.tar.gz
-
-
   sha256: 47984406efb3b3face133979ccbae9fefb7360b9a6ca1a1c11473681418ed2ca
 
 build:
   merge_build_host: True  # [win]
-  number: 1000
+  number: 1001
 
   rpaths:
     - lib/R/lib/
@@ -34,7 +32,6 @@ requirements:
     - {{ compiler('m2w64_cxx') }}  # [win]
   host:
     - r-base
-
   run:
     - r-base
 
@@ -42,8 +39,6 @@ test:
   commands:
     - $R -e "library('sourcetools')"  # [not win]
     - "\"%R%\" -e \"library('sourcetools')\""  # [win]
-
-
 
 about:
   home: https://CRAN.R-project.org/package=sourcetools
@@ -54,8 +49,7 @@ about:
   license_family: MIT
   license_file: LICENSE
 
-
-
 extra:
   recipe-maintainers:
     - croth1
+    - conda-forge/r
