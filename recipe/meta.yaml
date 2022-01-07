@@ -1,5 +1,4 @@
 {% set version = '0.1.7' %}
-
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -8,37 +7,39 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  fn: sourcetools_{{ version }}.tar.gz
   url:
-    - https://cran.r-project.org/src/contrib/sourcetools_{{ version }}.tar.gz
-    - https://cran.r-project.org/src/contrib/Archive/sourcetools/sourcetools_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/sourcetools_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/Archive/sourcetools/sourcetools_{{ version }}.tar.gz
   sha256: 47984406efb3b3face133979ccbae9fefb7360b9a6ca1a1c11473681418ed2ca
 
 build:
   merge_build_host: True  # [win]
   number: 1002
-
   rpaths:
     - lib/R/lib/
     - lib/
-  skip: True  # [win32]
 
 requirements:
   build:
-    - cross-r-base {{ r_base }}  # [build_platform != target_platform]
-    - posix                # [win]
-    - {{ compiler('c') }}        # [unix]
-    - {{ compiler('m2w64_c') }}  # [win]
-    - {{ compiler('cxx') }}        # [unix]
-    - {{ compiler('m2w64_cxx') }}  # [win]
+    - {{ compiler('c') }}              # [not win]
+    - {{ compiler('m2w64_c') }}        # [win]
+    - {{ compiler('cxx') }}            # [not win]
+    - {{ compiler('m2w64_cxx') }}      # [win]
+    - {{ posix }}filesystem        # [win]
+    - {{ posix }}make
+    - {{ posix }}sed               # [win]
+    - {{ posix }}coreutils         # [win]
+    - {{ posix }}zip               # [win]
+    - cross-r-base {{ r_base }}    # [build_platform != target_platform]
   host:
     - r-base
   run:
     - r-base
+    - {{ native }}gcc-libs         # [win]
 
 test:
   commands:
-    - $R -e "library('sourcetools')"  # [not win]
+    - $R -e "library('sourcetools')"           # [not win]
     - "\"%R%\" -e \"library('sourcetools')\""  # [win]
 
 about:
@@ -48,9 +49,11 @@ about:
     both an R and C++ interface for the tokenization of R code, and helpers for interacting
     with the tokenized representation of R code.
   license_family: MIT
-  license_file: LICENSE
+  license_file:
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/MIT
+    - LICENSE
 
 extra:
   recipe-maintainers:
-    - croth1
     - conda-forge/r
+    - croth1
